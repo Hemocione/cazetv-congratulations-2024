@@ -18,13 +18,13 @@
     </h2>
 
     <div class="buttons">
+      <button class="hemocione-instagram" @click="goToLivestream">
+        <NuxtImg src="/logos/instagram-logo.svg" alt="Twitch" />
+        Acompanhar a Transmissão
+      </button>
       <button class="hemocione-instagram" @click="goToInstagram">
         <NuxtImg src="/logos/instagram-logo.svg" alt="Instagram" />
         Seguir o Hemocione
-      </button>
-      <button class="twitch" @click="goToTwitch">
-        <NuxtImg src="/logos/twitch-logo.svg" alt="Twitch" />
-        Acompanhar a Transmissão
       </button>
       <button class="hemocione-website" @click="goToWebsite">
         <NuxtImg
@@ -59,6 +59,7 @@ if (token) {
   }
 
   if (tokenDecoded) {
+    console.log("Token Decoded", tokenDecoded);
     const userData: UserData = {
       name: tokenDecoded.givenName,
       email: tokenDecoded.email,
@@ -73,8 +74,8 @@ const goToInstagram = () => {
   window.open("https://www.instagram.com/hemocione/");
 };
 
-const goToTwitch = () => {
-  window.open("https://www.twitch.tv/casimito");
+const goToLivestream = () => {
+  window.open("https://www.instagram.com/cazetv/live/");
 };
 
 const goToWebsite = () => {
