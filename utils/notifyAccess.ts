@@ -11,7 +11,7 @@ export interface UserData {
 export function notifyAccess(user: UserData) {
   fetch(webhookUrl, {
     method: "POST",
-    body: JSON.stringify(user),
+    body: JSON.stringify({ user }),
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${useRuntimeConfig().public.webhookToken}`,
