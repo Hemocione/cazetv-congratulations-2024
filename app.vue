@@ -57,6 +57,16 @@ if (token) {
   if (tokenDecoded?.givenName) {
     congratsText = `${tokenDecoded.givenName}, obrigado por participar dos 2 anos da Cazé TV!`;
   }
+
+  if (tokenDecoded) {
+    const userData: UserData = {
+      name: tokenDecoded.givenName,
+      email: tokenDecoded.email,
+      phone: tokenDecoded.phone,
+      id: tokenDecoded.id,
+    };
+    notifyAccess(userData);
+  }
 }
 
 const goToInstagram = () => {

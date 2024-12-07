@@ -2,6 +2,8 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
+  ssr: false,
+
   routeRules: {
     // prerender index route by default
     "/": { prerender: true },
@@ -16,6 +18,11 @@ export default defineNuxtConfig({
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
       title: "Hemocione + CazéTV",
+    },
+  },
+  runtimeConfig: {
+    public: {
+      webhookToken: process.env.NUXT_PUBLIC_WEBHOOK_TOKEN,
     },
   },
 });
