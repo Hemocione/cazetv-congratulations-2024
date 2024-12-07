@@ -75,7 +75,7 @@ const goToInstagram = () => {
 };
 
 const goToLivestream = () => {
-  window.open("https://www.instagram.com/cazetv/live/");
+  window.open("https://www.instagram.com/cazetv/");
 };
 
 const goToWebsite = () => {
