@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="page" ref="application">
     <div class="logos">
       <NuxtImg
         src="/logos/cazetv_horizontal.png"
@@ -42,6 +42,12 @@
 const route = useRoute();
 const router = useRouter();
 const token = route.query.token;
+import party from "party-js";
+
+party.resolvableShapes["gota"] =
+  "<img src='/logos/gota.svg' style='width: 16px; height: 16px;'>";
+
+const application = ref<HTMLDivElement | null>(null);
 
 let congratsText = "Obrigado por participar dos 2 anos da Cazé TV!";
 
@@ -64,6 +70,16 @@ const goToTwitch = () => {
 const goToWebsite = () => {
   window.open("https://hemocione.com.br/");
 };
+
+onMounted(() => {
+  if (!application.value) return;
+
+  party.confetti(application.value, {
+    shapes: ["gota"],
+    count: party.variation.range(50, 100),
+    size: party.variation.range(0.6, 1.5),
+  });
+});
 </script>
 
 <style scoped>
